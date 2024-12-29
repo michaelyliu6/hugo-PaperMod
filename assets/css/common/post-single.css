@@ -255,7 +255,7 @@
 .toc {
     margin: 0 2px 40px 2px;
     border: 1px solid var(--border);
-    background: var(--code-bg);
+    background: var(--entry);
     border-radius: var(--radius);
     padding: 0.4em;
 }
@@ -268,6 +268,7 @@
     cursor: zoom-in;
     margin-inline-start: 10px;
     user-select: none;
+    padding: 12px 0;
 }
 
 .toc details[open] summary {
@@ -279,14 +280,27 @@
     font-weight: 500;
 }
 
+.toc-container.wide .toc .inner {
+    margin: 0;
+}
+
+.active {
+    font-weight: 600;
+}
+
+.toc ul {
+    list-style-type: circle;
+}
+
 .toc .inner {
-    margin: 5px 20px 0;
-    padding: 0 10px;
-    opacity: 0.9;
+    margin: 0 0 0 20px;
+    padding: 0px 15px 15px 20px;
+    font-size: 16px;
 }
 
 .toc li ul {
-    margin-inline-start: var(--gap);
+    margin-inline-start: calc(var(--gap) * 0.5);
+    list-style-type: none;
 }
 
 .toc summary:focus {
@@ -325,11 +339,10 @@
     color: var(--secondary);
     font-size: 14px;
     line-height: 34px;
-    background: var(--code-bg);
+    background: var(--tertiary);
 }
 
-.post-tags a:hover,
-.paginav a:hover {
+.post-tags a:hover {
     background: var(--border);
 }
 
@@ -406,4 +419,24 @@ h1>a>svg {
 img.in-text {
     display: inline;
     margin: auto;
+}
+
+
+.toc-container.wide {
+    position: absolute;
+    height: 100%;
+    border-right: 1px solid var(--border);
+    left: calc((var(--toc-width) + var(--gap)) * -1);
+    top: calc(var(--gap) * 2);
+    width: var(--toc-width);
+}
+
+.wide .toc {
+    position: sticky;
+    top: var(--gap);
+    border: unset;
+    background: unset;
+    border-radius: unset;
+    width: 100%;
+    margin: 0 2px 40px 2px;
 }
