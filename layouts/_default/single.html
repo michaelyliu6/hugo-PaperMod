@@ -42,6 +42,25 @@
   </div>
   {{- end }}
 
+  {{- if not (.Param "hideCitation") }}
+  <div class="post-citation">
+    <h1 id="citation">Citation<a hidden class="anchor" aria-hidden="true" href="#citation">#</a></h1>
+    <p><br>Cited as:</p>
+    <blockquote>
+      <p>{{ .Site.Params.Author }}. ({{ .Date.Format "Jan 2006" }}). {{ .Title }}. {{ .Site.Title }}. {{ .Permalink }}</p>
+    </blockquote>
+    <p>Or</p>
+    <pre tabindex="0"><code>@article{ {{- .File.ContentBaseName -}},
+  title   = "{{ .Title }}",
+  author  = "{{ .Site.Params.Author }}",
+  journal = "{{ .Site.Title }}",
+  year    = "{{ .Date.Format "2006" }}",
+  month   = "{{ .Date.Format "Jan" }}",
+  url     = "{{ .Permalink }}"
+}</code></pre>
+  </div>
+  {{- end }}
+
   <footer class="post-footer">
     {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
     <ul class="post-tags">
@@ -49,12 +68,6 @@
       <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
       {{- end }}
     </ul>
-    {{- if (.Param "ShowPostNavLinks") }}
-    {{- partial "post_nav_links.html" . }}
-    {{- end }}
-    {{- if (and site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
-    {{- partial "share_icons.html" . -}}
-    {{- end }}
   </footer>
 
   {{- if (.Param "comments") }}
