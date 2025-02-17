@@ -9,9 +9,17 @@
     margin: 0 auto;
 }
 
-/* Prevent horizontal overflow on mobile */
+/* Prevent horizontal overflow on mobile, except for math formulas */
 .post-content {
     overflow-x: hidden;
+}
+
+/* Allow scrolling for math formulas */
+.post-content .math {
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
+    padding: 8px 0;
 }
 
 /* Make images responsive */
