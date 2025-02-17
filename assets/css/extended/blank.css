@@ -9,9 +9,9 @@
     margin: 0 auto;
 }
 /* Prevent horizontal overflow on mobile */
-.post-content {
+/* .post-content {
     overflow-x: hidden;
-}
+} */
 
 /* Make images responsive */
 .post-content img {
