@@ -8,3 +8,27 @@
     max-width: 960px;
     margin: 0 auto;
 }
+
+/* Prevent horizontal overflow on mobile */
+.post-content {
+    overflow-x: hidden;
+}
+
+/* Make images responsive */
+.post-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Make code blocks responsive */
+.post-content pre {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Ensure tables don't cause overflow */
+.post-content table {
+    max-width: 100%;
+    display: block;
+    overflow-x: auto;
+}
